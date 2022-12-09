@@ -5,10 +5,11 @@
 <div id="categories">
   <% @categories.each do |category| %>
     <%= render category %>
-    <p>
-      <%= link_to "Show this category", category %>
-    </p>
   <% end %>
 </div>
 
-<%= link_to "New category", new_category_path %>
+<% if user_signed_in? %>
+    <% if current_user.admin? || current_user.moderator? %>
+      <%= link_to "New category", new_category_path %>
+    <% end %>
+  <% end %>

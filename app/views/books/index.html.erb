@@ -1,10 +1,15 @@
 <h1>Books</h1>
 
 <div id="books">
-  <% @books.each do |book| %>
-    <%= render book %>
-    <p>
-      <%= link_to "Show this book", book %>
-    </p>
+  <% if @books.count == 0 %>
+
+    <h1>There are no books currently.</h1>
+
+  <% else %>
+    <% @books.each do |book| %>
+      <% if book.image.attached? %> 
+        <%= link_to image_tag(book.image_as_thumbnail), book %>
+      <% end %>
+    <% end %>
   <% end %>
 </div>
