@@ -1,0 +1,20 @@
+<h1 class="text-center"><%= pluralize(@books.count, "result") %>found</h1>
+
+<div class="conatiner">
+    <table class="table">
+        <thead>
+            <tr>
+                <th><%= sort_link(@query, :title,"Title", default_order: :asc) %></th>
+            </tr>
+        </thead>
+        <tbody>
+            <% @books.each do |book| %>
+                <tr>
+                    <td><%= link_to book.title, book %></td>
+                </tr>
+            <% end %>
+        </tbody>
+    </table>
+</div>
+
+<%= link_to "Back to books", books_path %>

@@ -14,3 +14,13 @@
 // "bootstrap-sprockets" must be imported before "bootstrap" and "bootstrap/variables"
 @import "bootstrap-sprockets";
 @import "bootstrap";
+
+.book-thumbnail{
+    height: 350px;
+    width: 250px;
+}
+
+.book-showpage{
+    height: 475px;
+    width: 325px;
+}
