@@ -1,4 +1,11 @@
 <div id="<%= dom_id book %>">
+  
+  <% if book.image.attached? %> 
+    <%= link_to image_tag(book.image_as_thumbnail), book %>
+    
+  <% else %>
+  <% end %>
+
   <p>
     <strong>Title:</strong>
     <%= book.title %>

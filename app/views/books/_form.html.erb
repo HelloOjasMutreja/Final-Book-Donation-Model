@@ -17,6 +17,11 @@
   </div>
 
   <div>
+    <%= form.label :image, style: "display: block" %>
+    <%= form.file_field :image %>
+  </div>
+
+  <div>
     <%= form.label :category, style: "display: block" %>
     <%= form.select :category_id, options_for_select(@categories.collect { |cat| [cat.name, cat.id]}) %>
   </div>
