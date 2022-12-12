@@ -1,44 +1,67 @@
-<nav class="navbar navbar-expand-lg bg-light">
-  <div class="container-fluid">
+<div class="position-relative tm-site-header">
+  <div class="container-fluid position-relative">
+    <div class="row">
+      <div class="col-7 col-md-4">
+        <nav class="navbar navbar-expand-lg mr-0 ml-auto" id="tm-main-nav">
+          <div class="collapse navbar-collapse tm-nav" id="navbar-nav">
+            <ul class="navbar-nav">
+              <li class="nav-item dropdown">
+                <a class="nav-link" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"> 
+                  <svg style="fill: grey" width="30px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                    <path d="M224 256c70.7 0 128-57.3 128-128S294.7 0 224 0S96 57.3 96 128s57.3 128 128 128zm-45.7 48C79.8 304 0 383.8 0 482.3C0 498.7 13.3 512 29.7 512H418.3c16.4 0 29.7-13.3 29.7-29.7C448 383.8 368.2 304 269.7 304H178.3z"/>
+                  </svg> 
+                </a>
+                <ul class="dropdown-menu dropdown-menu-dark">
+                  <% if current_user %>
+                  
+                    <li class="nav-item">
+                      <%= link_to "Sign Out", destroy_user_session_path, 'data-turbo-method': :delete, class: "nav-link" %>
+                    </li>
 
-    <%= link_to "Navbar", root_path, class: "navbar-brand" %>
-    
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
+                  <% else %>
+                  
+                    <li class="nav-item">
+                      <%= link_to "Sign Up", new_user_registration_path, class: "nav-link active" %>
+                    </li>
 
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        
-        <% if current_user %>
+                    <li class="nav-item">
+                      <%= link_to "Log in", new_user_session_path, class: "nav-link" %>
+                    </li>
 
-          <li class="nav-item">
-            <%= link_to "New Book", new_book_path, class: "nav-link" %>
-          </li>
-
-          <li class="nav-item">
-            <%= link_to "Sign Out", destroy_user_session_path, 'data-turbo-method': :delete, class: "nav-link" %>
-          </li>
-
-        <% else %>
-        
-          <li class="nav-item">
-            <%= link_to "Sign Up", new_user_registration_path, class: "nav-link active" %>
-          </li>
-
-          <li class="nav-item">
-            <%= link_to "Log in", new_user_session_path, class: "nav-link" %>
-          </li>
-
-        <% end %>
-
-      </ul>
-      
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0 navbar-right">
-        <li><%= link_to "Categories", categories_path, class: "nav-link" %></li>
-        <%= render "search/form" %>
-      </ul>
-
+                  <% end %>
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </nav>
+      </div>
+      <div class="col-5 col-md-8 ml-auto mr-0">
+        <nav class="navbar navbar-expand-lg mr-0 ml-auto" id="tm-main-nav">
+          <button class="navbar-toggler tm-bg-black py-2 px-3 mr-0 ml-auto collapsed"
+              type="button"
+              data-toggle="collapse"
+              data-target="#navbar-nav"
+              aria-controls="navbar-nav"
+              aria-expanded="false"
+              aria-label="Toggle navigation">
+              <span>
+                  <i class="fas fa-bars tm-menu-closed-icon"></i>
+                  <i class="fas fa-times tm-menu-opened-icon"></i>
+              </span>
+          </button>
+          <div class="collapse navbar-collapse tm-nav" id="navbar-nav">
+            <ul class="navbar-nav text-uppercase navbar-right">                        
+              <li class="nav-item">
+                  <%= link_to "Need", books_path, class: "nav-link tm-nav-link" %>
+              </li>
+              
+              <li class="nav-item">
+                <%= link_to "Give", new_book_path, class: "nav-link tm-nav-link" %>
+              </li>
+            </ul>
+          </div>
+        </nav>
+      </div>
     </div>
   </div>
-</nav>
+</div>

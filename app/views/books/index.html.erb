@@ -1,4 +1,16 @@
-<h1>Books</h1>
+<div class="row">
+  <div class="col-12">
+    <h2 class="tm-page-title mb-4"
+      style="font-family: 'League Script', cursive;
+        font-size: 4rem;
+        -webkit-text-stroke: 2px black;
+        padding-left: 1rem;">
+      Books for donation
+    </h2>
+  </div>
+</div>
+
+<%= render "search/form" %>
 
 <div id="books">
   <% if @books.count == 0 %>
@@ -6,9 +18,9 @@
     <h1>There are no books currently.</h1>
 
   <% else %>
-    <div class="row">
+    <div class="row tm-catalog-item-list">
       <% @books.each do |book| %>
-        <div class="col-md-3">
+        <div class="col-lg-4 col-md-6 col-sm-12 tm-catalog-item">
           <% if book.image.attached? %> 
             <%= link_to image_tag(book.image_as_thumbnail, class: "book-thumbnail"), book %>
           <% end %>

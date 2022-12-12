@@ -1,4 +1,4 @@
-<h1 class="text-center"><%= pluralize(@books.count, "result") %>found</h1>
+<h1 class="text-center"><%= pluralize(@books.count, "result") %> found</h1>
 
 <div class="conatiner">
     <table class="table">
@@ -10,7 +10,9 @@
         <tbody>
             <% @books.each do |book| %>
                 <tr>
-                    <td><%= link_to book.title, book %></td>
+                    <td><% if book.image.attached? %> 
+                <%= link_to image_tag(book.image_as_thumbnail), book %>
+              <% end %></td>
                 </tr>
             <% end %>
         </tbody>

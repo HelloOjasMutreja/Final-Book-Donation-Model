@@ -1,20 +1,15 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
-
-
-<% if current_user %>
-    <p>Hello <%= current_user.email %>!</p>
-    <p>You are a [<%= current_user.role %>]</p>
-    <% if current_user.admin? %>
-        <p>There are <%= User.count %> users in the system.</p>
-    <% end %>
-    <p>
-        You have successfully authenticated with your Devise account.
-        You are now ready to interact with this application.
-    </p>
-    <%= link_to "Sign Out", destroy_user_session_path, 'data-turbo-method': :delete %>
-<% else %>
-    <p>You are not signed in.</p>
-    <%= link_to "Sign Up!", new_user_registration_path %>
-    <%= link_to "Login", new_user_session_path %>
-<% end %>
+<!DOCTYPE html>
+<html lang="en">
+    <body class="body-home">
+        <p class="tm-welcome-text mb-1 text-white"
+            style="
+            text-align: center;
+            font-family: 'League Script', cursive;
+            font-size: 3rem;
+            -webkit-text-stroke: 2px white;
+            line-height: 4.5rem;
+            ">Smell from a new book Adores some people, <br>
+        Dust of the old books Does good to whom?
+        </p>
+    </body>
+</html>
