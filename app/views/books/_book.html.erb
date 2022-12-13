@@ -1,27 +1,29 @@
 <div id="<%= dom_id book %>">
-  
-  <% if book.image.attached? %> 
-    <%= link_to image_tag(book.image_as_thumbnail, class: "book-showpage"), book %>
-  <% end %>
 
-  <p>
-    <strong>Title:</strong>
-    <%= book.title %>
-  </p>
+  <div class="row">
+    <div class="col-md-4">
+      <% if book.image.attached? %> 
+        <%= link_to image_tag(book.image_as_thumbnail, class: "book-showpage"), book %>
+      <% end %>
+    </div>
 
-  <p>
-    <strong>category:</strong>
-    <%= link_to book.category.name, book.category %>
-  </p>
+    <div class="col-md-8">
+      <h2>
+        <strong><%= book.title %></strong>
+      </h2>
 
-  <p>
-    <strong>Description:</strong>
-    <%= book.description %>
-  </p>
+      <p>
+        <strong>(<%= link_to book.category.name, book.category %>)</strong>        
+      </p>
 
-  <p>
-    <strong>Author:</strong>
-    <%= book.author %>
-  </p>
+      <p>
+        <strong>Description:</strong>
+        <%= book.description %>
+      </p>
+
+      <p>
+        <strong><%= book.author %></strong>
+      </p>
+    </div>
 
 </div>

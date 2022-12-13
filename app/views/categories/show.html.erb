@@ -8,7 +8,7 @@
   <% if user_signed_in? %>
     <% if current_user.admin? || current_user.moderator? %>
       | <%= link_to "Edit this category", edit_category_path(@category) %>
-      <%= button_to "Destroy this category", @category, method: :delete %>
+      <%= button_to "Destroy this category", @category, data: { confirm: "Are you sure?" }, method: :delete %>
     <% end %>
   <% end %>
 </div>

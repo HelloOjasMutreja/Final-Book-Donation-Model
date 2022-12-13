@@ -1,22 +1,62 @@
-<%= form_with(model: category) do |form| %>
-  <% if category.errors.any? %>
-    <div style="color: red">
-      <h2><%= pluralize(category.errors.count, "error") %> prohibited this category from being saved:</h2>
+<!DOCTYPE html>
+<html lang="en">
+  <body class="body-form">
+    <div class="tm-page-wrap mx-auto">
+      <div class="position-relative">
+        <div class="form-body">
+          <div class="row">
+            <div class="form-holder">
+              <div class="form-content">
+                <div class="form-items">
+                  <h3>Bring in a new family of books</h3>
+                    <%= form_with(model: category) do |form| %>
+                      <% if category.errors.any? %>
+                        <div style="color: red">
+                          <h2><%= pluralize(category.errors.count, "error") %> prohibited this category from being saved:</h2>
 
-      <ul>
-        <% category.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
+                          <ul>
+                            <% category.errors.each do |error| %>
+                              <li><%= error.full_message %></li>
+                            <% end %>
+                          </ul>
+                        </div>
+                      <% end %>
+
+                    <div class="col-md-12 form-styling">
+                      <%= form.text_field :title, class: "form-control", placeholder: "Book name" %>
+                    </div>
+                    
+                    <div class="form-styling btn">
+                      <%= form.submit %>
+                    </div>
+                  <% end %>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-  <% end %>
+    <script>
+      (function () {
+        "use strict";
+        const forms = document.querySelectorAll(".requires-validation");
+        Array.from(forms).forEach(function (form) {
+          form.addEventListener(
+            "submit",
+            function (event) {
+              if (!form.checkValidity()) {
+                event.preventDefault();
+                event.stopPropagation();
+              }
 
-  <div>
-    <%= form.label :name, style: "display: block" %>
-    <%= form.text_field :name %>
-  </div>
+              form.classList.add("was-validated");
+            },
+            false
+          );
+        });
+      })();
+    </script>
+  </body>
+</html>
 
-  <div>
-    <%= form.submit %>
-  </div>
-<% end %>

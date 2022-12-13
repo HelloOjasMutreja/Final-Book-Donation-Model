@@ -1,5 +1,45 @@
-<p>Welcome <%= @email %>!</p>
+<!DOCTYPE html>
+<html lang="en">
+  <body class="body-form">
+    <div class="tm-page-wrap mx-auto">
+      <div class="position-relative">
+        <div class="form-body">
+          <div class="row">
+            <div class="form-holder">
+              <div class="form-content">
+                <div class="form-items">
+                  <p>Welcome <%= @email %>!</p>
 
-<p>You can confirm your account email through the link below:</p>
+                  <p>You can confirm your account email through the link below:</p>
 
-<p><%= link_to 'Confirm my account', confirmation_url(@resource, confirmation_token: @token) %></p>
+                  <p><%= link_to 'Confirm my account', confirmation_url(@resource, confirmation_token: @token) %></p>
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script>
+      (function () {
+        "use strict";
+        const forms = document.querySelectorAll(".requires-validation");
+        Array.from(forms).forEach(function (form) {
+          form.addEventListener(
+            "submit",
+            function (event) {
+              if (!form.checkValidity()) {
+                event.preventDefault();
+                event.stopPropagation();
+              }
+
+              form.classList.add("was-validated");
+            },
+            false
+          );
+        });
+      })();
+    </script>
+  </body>
+</html>

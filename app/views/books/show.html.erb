@@ -1,11 +1,15 @@
 <%= render @book %>
 
-<div>
-  <%= link_to "Back to books", books_path %>
-  <% if user_signed_in? %>
-    <% if @book.user_id == current_user.id || current_user.admin? %>
-      | <%= link_to "Edit this book", edit_book_path(@book) %>
-      <%= button_to "Destroy this book", @book, method: :delete, data: { confirm: "Are you sure?" } %>
+<div class="row">
+  <div class="col-md-8">
+    <%= link_to "Back to books", books_path %>
+    <% if user_signed_in? %>
+      <% if @book.user_id == current_user.id %>
+        | <%= link_to "Edit this book", edit_book_path(@book) %>
+        <% if current_user.moderator? %>
+          <%= button_to "Destroy this book", @book, method: :delete, data: { confirm: "Are you sure?" } %>
+        <% end %>
+      <% end %>
     <% end %>
-  <% end %>
+  </div>
 </div>

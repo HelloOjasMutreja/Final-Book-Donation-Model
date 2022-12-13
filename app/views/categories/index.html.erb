@@ -1,8 +1,8 @@
 <p style="color: green"><%= notice %></p>
 
-<h1>Categories</h1>
+<h1><strong>Categories</strong></h1>
 
-<div id="categories">
+<div id="categories" class="container">
   <% @categories.each do |category| %>
     <div id="<%= dom_id category %>">
       <h2>
@@ -10,28 +10,26 @@
       </h2>
 
       <% if category.books.count == 0 %>
-
         <h2>There are no books currently in this category.</h2>
-
       <% else %>
-        <div class="row">
-          <% category.books.each do |book| %>
-            <div class="col-md-2">
-              <% if book.image.attached? %> 
-                <%= link_to image_tag(book.image_as_thumbnail), book %>
-              <% end %>
-            </div>
-          <% end %>
+        <div class="category-row container">
+          <div class="row">
+            <% category.books.each do |book| %>
+              <div class="col-md-3">
+                <% if book.image.attached? %> 
+                  <%= link_to image_tag(book.image_as_thumbnail, class: "book-category"), book %>
+                <% end %>
+              </div>
+            <% end %>
+          </div>
         </div>
       <% end %>
-
     </div>
-
   <% end %>
 </div>
 
 <% if user_signed_in? %>
-    <% if current_user.admin? || current_user.moderator? %>
-      <%= link_to "New category", new_category_path %>
-    <% end %>
+  <% if current_user.admin? || current_user.moderator? %>
+    <%= link_to "New category", new_category_path %>
   <% end %>
+<% end %>

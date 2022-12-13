@@ -17,21 +17,50 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700;900&display=swap');
 
 
-.book-thumbnail{
-    height: 380px;
-    width: 255px;
-    padding: 20px;
-    border: rgb(63, 63, 63) solid 2px;
-    border-radius: 8px;
+.book-thumbnail {
+  height: 380px;
+  width: 255px;
+  padding: 18px;
+  border: rgb(75, 75, 75) solid 2px;
+  border-radius: 7px;
+  display: inline-block;
 }
 
-.book-showpage{
-    height: 475px;
-    width: 325px;
+.book-showpage {
+  height: 510px;
+  width: 350px;
+  padding: 25px;
+  border: rgb(75, 75, 75) solid 2px;
+  border-radius: 7px;
 }
 
-#books{
+.book-category {
+  height: 320px;
+  width: 215px;
+  border-radius: 15px;
+  padding: 10px;
+}
+
+#books {
   padding-top: 50px;
+}
+
+.category-btn {
+  border-radius: 50px;
+  font-size: 1em;
+  padding: 0.5rem;
+  padding-right: 2rem;
+  padding-left: 2rem;
+  margin-left: 1rem;
+}
+
+.category-row {
+  padding: 15px;
+}
+
+.form-styling {
+  padding-top: 5px;
+  padding-bottom: 10px;
 }
 
 /*

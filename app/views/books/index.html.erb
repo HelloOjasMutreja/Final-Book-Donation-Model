@@ -9,8 +9,16 @@
     </h2>
   </div>
 </div>
+<br>
+<div class="row">
+  <div class="col-md-4">
+    <%= link_to "Categories", categories_path, class: "btn btn-dark text-center mb-3 category-btn" %>
+  </div>
+  <div class="col-md-8">
+    <%= render "search/form" %>
+  </div>
+</div>
 
-<%= render "search/form" %>
 
 <div id="books">
   <% if @books.count == 0 %>

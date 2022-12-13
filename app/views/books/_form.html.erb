@@ -1,42 +1,81 @@
-<%= form_with(model: book) do |form| %>
-  <% if book.errors.any? %>
-    <div style="color: red">
-      <h2><%= pluralize(book.errors.count, "error") %> prohibited this book from being saved:</h2>
+<!DOCTYPE html>
+<html lang="en">
+  <body class="body-form">
+    <div class="tm-page-wrap mx-auto">
+      <div class="position-relative">
+        <div class="form-body">
+          <div class="row">
+            <div class="form-holder">
+              <div class="form-content">
+                <div class="form-items">
+                  <h3>Spread the knowledge</h3>
+                  <%= form_with(model: book) do |form| %>
+                    <% if book.errors.any? %>
+                      <div style="color: red">
+                        <h2><%= pluralize(book.errors.count, "error") %> prohibited this book from being saved:</h2>
 
-      <ul>
-        <% book.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
+                        <ul>
+                          <% book.errors.each do |error| %>
+                            <li><%= error.full_message %></li>
+                          <% end %>
+                        </ul>
+                      </div>
+                    <% end %>
+
+                    <div class="col-md-12 form-styling">
+                      <%= form.text_field :title, class: "form-control", placeholder: "Book name" %>
+                    </div>
+
+                    <div class="col-md-12 form-styling">
+                      <%= form.file_field :image, placeholder: "Upload file" %>
+                    </div>
+
+                    <div class="col-md-12 form-styling">
+                      <%= form.select :category_id, options_for_select(@categories.collect { |cat| [cat.name, cat.id]}), class: "form-select mt-3" %>
+                    </div>
+
+                    <div class="col-md-12 form-styling">
+                      <%= form.text_area :description, class: "form-control", placeholder: "Enter the description"%>
+                    </div>
+
+                    <div class="col-md-12 form-styling">
+                      <%= form.text_field :author, class: "form-control", placeholder: "Author" %>
+                    </div>
+
+                    <%= form.check_box :confirmation %>
+                    <%= form.label :confirmation, "I confirm that all data are correct" %>
+
+                    <div class="form-styling btn">
+                      <%= form.submit %>
+                    </div>
+                  <% end %>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-  <% end %>
+    <script>
+      (function () {
+        "use strict";
+        const forms = document.querySelectorAll(".requires-validation");
+        Array.from(forms).forEach(function (form) {
+          form.addEventListener(
+            "submit",
+            function (event) {
+              if (!form.checkValidity()) {
+                event.preventDefault();
+                event.stopPropagation();
+              }
 
-  <div>
-    <%= form.label :title, style: "display: block" %>
-    <%= form.text_field :title %>
-  </div>
+              form.classList.add("was-validated");
+            },
+            false
+          );
+        });
+      })();
+    </script>
+  </body>
+</html>
 
-  <div>
-    <%= form.label :image, style: "display: block" %>
-    <%= form.file_field :image %>
-  </div>
-
-  <div>
-    <%= form.label :category, style: "display: block" %>
-    <%= form.select :category_id, options_for_select(@categories.collect { |cat| [cat.name, cat.id]}) %>
-  </div>
-
-  <div>
-    <%= form.label :description, style: "display: block" %>
-    <%= form.text_area :description %>
-  </div>
-
-  <div>
-    <%= form.label :author, style: "display: block" %>
-    <%= form.text_field :author %>
-  </div>
-
-  <div>
-    <%= form.submit %>
-  </div>
-<% end %>

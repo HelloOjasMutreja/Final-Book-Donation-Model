@@ -12,7 +12,7 @@
       <% category.books.each do |book| %>
         <div class="col-md-3">
           <% if book.image.attached? %> 
-            <%= link_to image_tag(book.image_as_thumbnail), book %>
+            <%= link_to image_tag(book.image_as_thumbnail, class: "book-thumbnail"), book %>
           <% end %>
         </div>
       <% end %>
