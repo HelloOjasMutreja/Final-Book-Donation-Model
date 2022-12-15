@@ -26,8 +26,8 @@
                       <%= form.text_field :title, class: "form-control", placeholder: "Book name" %>
                     </div>
 
-                    <div class="col-md-12 form-styling">
-                      <%= form.file_field :image, placeholder: "Upload file" %>
+                    <div class="col-md-12 form-styling-btn">
+                      <%= form.file_field :image %>
                     </div>
 
                     <div class="col-md-12 form-styling">
@@ -42,10 +42,12 @@
                       <%= form.text_field :author, class: "form-control", placeholder: "Author" %>
                     </div>
 
-                    <%= form.check_box :confirmation %>
-                    <%= form.label :confirmation, "I confirm that all data are correct" %>
+                    <div class="col-md-12 form-styling">
+                      <%= form.check_box :confirmation %>
+                      <%= form.label :confirmation, "I confirm that all data are correct" %>
+                    </div>
 
-                    <div class="form-styling btn">
+                    <div class="form-styling-btn">
                       <%= form.submit %>
                     </div>
                   <% end %>

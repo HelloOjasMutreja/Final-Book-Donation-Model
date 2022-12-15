@@ -8,11 +8,15 @@
     <h1>There are no books currently in this category.</h1>
 
   <% else %>
-    <div class="row">
+    <div class="row tm-catalog-item-list">
       <% category.books.each do |book| %>
-        <div class="col-md-3">
+        <div class="col-lg-3 col-md-4 col-sm-6 tm-catalog-item">
           <% if book.image.attached? %> 
             <%= link_to image_tag(book.image_as_thumbnail, class: "book-thumbnail"), book %>
+          <% else %>
+            <div class="no-image-thumbnail-div">
+              <%= link_to book.title, book, class: "no-image-thumbnail" %>
+            </div>
           <% end %>
         </div>
       <% end %>

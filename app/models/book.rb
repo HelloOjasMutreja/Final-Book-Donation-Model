@@ -1,7 +1,7 @@
 class Book < ApplicationRecord
     validates :category_id, presence: true
-    validates :title, presence: true
-    validates :image, presence: true
+    validates :title, presence: true, length: { minimum: 1, maximum: 50 }
+    validates :description, presence: true, length: { minimum: 50, maximum: 1000 }
     belongs_to :category
     belongs_to :user
     has_one_attached :image, dependent: :destroy

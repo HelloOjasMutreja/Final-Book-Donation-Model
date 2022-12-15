@@ -1,16 +1,25 @@
 <h1 class="text-center"><%= pluralize(@books.count, "result") %> found</h1>
+<br />
+<%= render "search/form" %>
+<br />
 <%= link_to "Back to books", books_path %>
-<div class="conatiner">
+<br />
+<br />
+<div class="container">
     <div class="category-row container">
         <%= sort_link(@query, :title, "", default_order: :asc) %>
-        <div class="row">
-            <% @books.each do |book| %>
-                <div class="col-md-3">
-                    <% if book.image.attached? %> 
-                        <%= link_to image_tag(book.image_as_thumbnail, class: "book-category"), book %>
-                    <% end %>
-                </div>
-            <% end %>
-        </div>
+            <div class="row tm-catalog-item-list">
+                <% @books.each do |book| %>
+                    <div class="col-lg-3 col-md-4 col-sm-6 tm-catalog-item">
+                        <% if book.image.attached? %> 
+                            <%= link_to image_tag(book.image_as_thumbnail, class: "book-thumbnail"), book %>
+                        <% else %>
+                            <div class="no-image-thumbnail-div">
+                                <%= link_to book.title, book, class: "no-image-thumbnail" %>
+                            </div>
+                        <% end %>
+                    </div>
+                <% end %>
+            </div>
     </div>
 </div>

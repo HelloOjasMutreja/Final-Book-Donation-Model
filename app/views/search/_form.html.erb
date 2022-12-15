@@ -1,4 +1,4 @@
 <%= search_form_for(@query, url: search_path, method: :get, class: "d-flex") do |f| %>
-    <%= f.search_field :title_or_author_or_category_name_i_cont_any, placeholder: "Search", class: "form-control me-2 search-bar-main" %>
-    <%= f.submit "Search", class: "btn btn-dark text-center mb-3 search-bar-btn" %>
+    <%= f.search_field :title_or_author_or_category_name_i_cont_any, placeholder: "Search by Title, Author and Category", class: "form-control me-2 search-bar-main" %>
+    <%= f.submit "Search", class: "btn btn-dark search-bar-btn" %>
 <% end %>

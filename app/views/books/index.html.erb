@@ -9,7 +9,10 @@
     </h2>
   </div>
 </div>
-<br>
+
+<br />
+<br />
+
 <div class="row">
   <div class="col-md-4">
     <%= link_to "Categories", categories_path, class: "btn btn-dark text-center mb-3 category-btn" %>
@@ -18,6 +21,8 @@
     <%= render "search/form" %>
   </div>
 </div>
+
+<br />
 
 
 <div id="books">
@@ -28,9 +33,13 @@
   <% else %>
     <div class="row tm-catalog-item-list">
       <% @books.each do |book| %>
-        <div class="col-lg-4 col-md-6 col-sm-12 tm-catalog-item">
+        <div class="col-lg-3 col-md-4 col-sm-6 tm-catalog-item">
           <% if book.image.attached? %> 
             <%= link_to image_tag(book.image_as_thumbnail, class: "book-thumbnail"), book %>
+          <% else %>
+            <div class="no-image-thumbnail-div">
+              <%= link_to book.title, book, class: "no-image-thumbnail" %>
+            </div>
           <% end %>
         </div>
       <% end %>
