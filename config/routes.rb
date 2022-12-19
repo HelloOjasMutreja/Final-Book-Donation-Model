@@ -1,7 +1,10 @@
 Rails.application.routes.draw do
   get 'search', to: "search#index"
   get 'pages/home'
-  devise_for :users
+  devise_for :users, controllers: {
+    sessions: 'users/sessions',
+    registrations: 'users/registrations'
+  }
   resources :categories
   resources :books
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
