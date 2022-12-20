@@ -1,0 +1,12 @@
+<div class="request-<%= request.id %> container request-show">
+    <p><strong><%= request.user.user_name %></strong> [<%= time_ago_in_words(request.created_at) %>]</p>
+    <% if current_user == request.user || @book.user_id == current_user.id %>
+        <div class="button-group float-end">
+            <%= button_to "Setback", [book, request], class: "callback-btn", method: :delete, data: { confirm: "Are you sure?" } %>
+        </div>
+    <% end %>
+    <hr />
+    <p>
+        <%= request.body %>
+    </p>
+</div>

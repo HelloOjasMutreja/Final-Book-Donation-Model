@@ -1,8 +1,9 @@
 <%= render @book %>
 
+<br>
+
 <div class="row container">
-  <div class="col-md-6">
-  </div>
+
   <div class="col-md-6">
     <%= link_to "Back to books", books_path %>
     <% if user_signed_in? %>
@@ -14,4 +15,23 @@
       <% end %>
     <% end %>
   </div>
+
+  <div class="col-md-6">  
+      <% if user_signed_in? %>
+        <% if Request.where(book_id: @book.id).count < 5 %>
+          <%= render "requests/form", book: @book %>
+        <% end %>
+      <% end %>
+  </div>
+
+  <br />
+
+  <div class="col-md-12 request-index">
+    <% if @book.user_id == current_user.id || current_user.moderator? || current_user.admin? %>
+      <% @requests.each do |request| %>
+        <%= render "requests/request", book: @book, request: request %>
+      <% end %>
+    <% end %>
+  </div>
+
 </div>

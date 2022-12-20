@@ -1,0 +1,9 @@
+<%= form_with(model: [book, book.requests.build]) do |form| %>
+    <div class="col-md-12 form-styling">
+        <%= form.text_area :body, class: "form-control", placeholder: "Mention Your request [Maximum Character Legth = 75]"%>
+    </div>
+
+    <div class="float-end btn request-styling-btn">
+        <%= form.submit "Request" %>
+    </div>
+<% end %>

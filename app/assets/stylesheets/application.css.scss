@@ -128,6 +128,45 @@
   width: 28px;
 }
 
+.request-show {
+  border: 2px solid rgb(75, 75, 75);
+  border-radius: 5px;
+  width: auto;
+  height: 200px;
+  padding: 2em;
+  margin: 1em;
+}
+
+.request-index {
+  padding-top: 50px;
+}
+
+.request-styling-btn {
+  margin-top: 10px;
+  align-self: center;
+  margin: auto;
+  width: max-content;
+  height: max-content;
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.callback-btn {
+  background-color: rgb(255, 55, 55);
+  color: white;
+  border-radius: 50px;
+  border: 2px solid rgb(255, 55, 55);
+  font-size: 1em;
+  padding: 0.5rem 2rem;
+  margin: 0 1rem;
+}
+
+.callback-btn:hover {
+  background-color: rgb(200, 25, 25);
+  border: 2px solid rgb(200, 25, 25);
+  color: white;
+}
+
 
 // scrollbar styling
 
@@ -1013,4 +1052,4 @@ html {
       flex-direction: column;
     }
   }
-  
+  @import 'actiontext.css';

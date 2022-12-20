@@ -19,4 +19,5 @@ import "controllers"
           form.classList.add('was-validated')
         }, false)
       })
-    })()
+    })()import "trix"
+import "@rails/actiontext"

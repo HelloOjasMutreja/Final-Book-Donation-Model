@@ -6,7 +6,9 @@ Rails.application.routes.draw do
     registrations: 'users/registrations'
   }
   resources :categories
-  resources :books
+  resources :books do
+    resources :requests
+  end
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Defines the root path route ("/")
