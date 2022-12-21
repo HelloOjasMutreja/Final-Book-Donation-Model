@@ -42,8 +42,10 @@
                       <%= form.text_field :author, class: "form-control", placeholder: "Author" %>
                     </div>
 
-                    <%= form.check_box :confirmation %>
-                    <%= form.label :confirmation, "I confirm that all data are correct" %>
+                    <div class="col-md-12 form-styling">
+                      <%= form.check_box :confirmation %>
+                      <%= form.label :confirmation, "I confirm that all data are correct" %>
+                    </div>
 
                     <div class="form-styling-btn">
                       <%= form.submit %>

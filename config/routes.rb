@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   get 'search', to: "search#index"
-  get 'pages/home'
+  get "user", to: "pages#user"
   devise_for :users, controllers: {
     sessions: 'users/sessions',
     registrations: 'users/registrations'

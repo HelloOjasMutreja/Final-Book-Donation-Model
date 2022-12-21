@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <body class="body-form">
+    <div class="tm-page-wrap mx-auto">
+      <div class="position-relative">
+        <div class="form-body">
+          <div class="row">
+            <div class="form-holder">
+              <div class="form-content">
+                <div class="form-items">
+                    <% if current_user %>
+                      <p>Hello <strong><%= current_user.user_name %></strong>!</p>
+                      <p>Your role is set as <strong><%= current_user.role %></strong></p>
+                      <% if current_user.admin? || current_user.moderator? %>
+                          <p>There are <strong><%= User.count %> users</strong> in the system.</p>
+                          <p>There are <strong><%= Book.count %> books</strong> in the application.</p>
+                          <p>There are <strong><%= Request.count %> requsts</strong> in the application.</p>
+                      <% end %>
+                      <p>
+                          You have successfully authenticated with your Devise account.<br />
+                          You are now ready to interact with this application.
+                      </p>
+                      <%# link_to "Sign Out", destroy_user_session_path, method: :delete %> <%= link_to "Edit Profile", edit_user_registration_path %>
+                      <br />
+                      <br />
+                      <br />
+
+                      <h2 class="tm-page-title mb-4"
+                        style="font-family: 'League Script', cursive;
+                          font-size: 4rem;
+                          -webkit-text-stroke: 2px white;
+                          padding-left: 1rem;">
+                        Your Books
+                      </h2>
+                      <div id="books">
+                        <% if current_user.books.count == 0 %>
+
+                          <h1>There are no books currently.</h1>
+
+                        <% else %>
+                          <div class="row tm-catalog-item-list">
+                            <% current_user.books.each do |book| %>
+                              <div class="col-lg-4 col-md-6 col-sm-8 tm-catalog-item">
+                                <% if book.image.attached? %> 
+                                  <%= link_to image_tag(book.image_as_thumbnail, class: "book-thumbnail"), book %>
+                                <% else %>
+                                  <div class="no-image-thumbnail-div">
+                                    <%= link_to book.title, book, class: "no-image-thumbnail" %>
+                                  </div>
+                                <% end %>
+                              </div>
+                            <% end %>
+                          </div>
+                        <% end %>
+                      </div>
+                    <% else %>
+                      <p>You are not signed in.</p>
+                      <%= link_to "Sign Up", new_user_registration_path %>
+                      <%= link_to "Login", new_user_session_path %>
+                    <% end %>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script>
+      (function () {
+        "use strict";
+        const forms = document.querySelectorAll(".requires-validation");
+        Array.from(forms).forEach(function (form) {
+          form.addEventListener(
+            "submit",
+            function (event) {
+              if (!form.checkValidity()) {
+                event.preventDefault();
+                event.stopPropagation();
+              }
+
+              form.classList.add("was-validated");
+            },
+            false
+          );
+        });
+      })();
+    </script>
+  </body>
+</html>

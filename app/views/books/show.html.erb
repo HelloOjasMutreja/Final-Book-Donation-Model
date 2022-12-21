@@ -28,6 +28,7 @@
 
   <div class="col-md-12 request-index">
     <% if @book.user_id == current_user.id || current_user.moderator? || current_user.admin? %>
+    <h2>There are <%= pluralize(@requests.count, "request") %> for this book.</h2>
       <% @requests.each do |request| %>
         <%= render "requests/request", book: @book, request: request %>
       <% end %>

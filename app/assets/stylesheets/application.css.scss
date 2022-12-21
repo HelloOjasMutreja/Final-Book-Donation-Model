@@ -117,11 +117,13 @@
   align-items: center;
   justify-content: center;
   margin: auto;
+  align-self: center;
 }
 
 .alert-message {
   width: max-content;
   height: 40px;
+  margin: auto;
 }
 
 .alert-symbol {
