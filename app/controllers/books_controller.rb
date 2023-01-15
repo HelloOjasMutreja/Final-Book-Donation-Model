@@ -12,6 +12,7 @@ class BooksController < ApplicationController
   def show
     @book = Book.find(params[:id])
     @requests = @book.requests.order("created_at DESC")
+    mark_notifications_as_read
   end
 
   # GET /books/new
@@ -75,5 +76,10 @@ class BooksController < ApplicationController
 
     def set_categories
       @categories = Category.all.order(:name)      
+    end
+
+    def mark_notifications_as_read
+      notifications_to_mark_as_read = @book.notifications_as_book.where(recipient: current_user)
+      notifications_to_mark_as_read.update_all(read_at: Time.zone.now)
     end
 end

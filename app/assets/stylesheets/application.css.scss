@@ -17,6 +17,20 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700;900&display=swap');
 
 
+button.log-out-button {
+  background-color: #ffffff; /* red */
+  color: #000000; /* white */
+  padding-left: 20px;
+  border-radius: 0px;
+  align-self: center;
+  border: none;
+  cursor: pointer;
+}
+
+button.log-out-button:hover {
+  background-color: #ffffff; /* dark red */
+}
+
 .book-thumbnail {
   height: 380px;
   width: 255px;
@@ -117,13 +131,11 @@
   align-items: center;
   justify-content: center;
   margin: auto;
-  align-self: center;
 }
 
 .alert-message {
   width: max-content;
   height: 40px;
-  margin: auto;
 }
 
 .alert-symbol {
@@ -734,8 +746,6 @@ html {
   }
   
   #contact-select:not([multiple]) {
-    -webkit-appearance: none;
-    -moz-appearance: none;
     background-position: right 15px center;
     background-repeat: no-repeat;
     background-image: url(../img/select-arrow.png);

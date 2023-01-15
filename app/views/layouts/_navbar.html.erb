@@ -15,7 +15,12 @@
               </span>
           </button>
           <div class="collapse navbar-collapse tm-nav" id="navbar-nav">
-            <ul class="navbar-nav text-uppercase navbar-right">                        
+            <ul class="navbar-nav text-uppercase navbar-right">     
+
+              <li>
+                <%= render "layouts/notifications" %>
+              </li>
+
               <li class="nav-item">
                   <%= link_to "Need", books_path, class: "nav-link tm-nav-link" %>
               </li>
@@ -25,11 +30,11 @@
               </li>
             </ul>
           </div>
-        </nav>      
+        </nav>
+
+        <%= render 'layouts/alerts' %>
+      
       </div>
-    </div>
-    <div class="alert-container">
-      <%= render 'layouts/alerts' %>
     </div>
   </div>
 </div>

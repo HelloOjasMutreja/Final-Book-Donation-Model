@@ -20,7 +20,7 @@
                           You have successfully authenticated with your Devise account.<br />
                           You are now ready to interact with this application.
                       </p>
-                      <%# link_to "Sign Out", destroy_user_session_path, method: :delete %> <%= link_to "Edit Profile", edit_user_registration_path %>
+                      <%= button_to("Log Out", destroy_user_session_path, method: :delete, class: "log-out-button") %> <%= link_to "Edit Profile", edit_user_registration_path %>
                       <br />
                       <br />
                       <br />

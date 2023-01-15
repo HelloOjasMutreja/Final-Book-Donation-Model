@@ -7,18 +7,20 @@
   </symbol>
 </svg>
 
-<% if notice %>
-    <div class="alert alert-success d-flex align-items-center alert-message" role="alert">
-        <svg class="bi flex-shrink-0 me-2 alert-symbol" role="img" aria-label="Success:"><use xlink:href="#check-circle-fill"/></svg>
-        <div>
-            <%= notice %>
+<div class="alert-container">
+    <% if notice %>
+        <div class="alert alert-success d-flex align-items-center alert-message" role="alert">
+            <svg class="bi flex-shrink-0 me-2 alert-symbol" role="img" aria-label="Success:"><use xlink:href="#check-circle-fill"/></svg>
+            <div>
+                <%= notice %>
+            </div>
         </div>
-    </div>
-<% elsif  alert %>
-    <div class="alert alert-danger d-flex align-items-center alert-message" role="alert">
-        <svg class="bi flex-shrink-0 me-2 alert-symbol" role="img" aria-label="Danger:"><use xlink:href="#exclamation-triangle-fill"/></svg>
-        <div>
-            <%= alert %>
+    <% elsif  alert %>
+        <div class="alert alert-danger d-flex align-items-center alert-message" role="alert">
+            <svg class="bi flex-shrink-0 me-2 alert-symbol" role="img" aria-label="Danger:"><use xlink:href="#exclamation-triangle-fill"/></svg>
+            <div>
+                <%= alert %>
+            </div>
         </div>
-    </div>
-<% end %>
+    <% end %>
+</div>

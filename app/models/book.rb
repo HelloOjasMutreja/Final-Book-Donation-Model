@@ -6,6 +6,8 @@ class Book < ApplicationRecord
     belongs_to :user
     has_many :requests, dependent: :destroy
     has_one_attached :image, dependent: :destroy
+    has_noticed_notifications model_name: "Notification"
+    has_many :notifications, through: :user, dependent: :destroy
 
     def image_as_thumbnail
         return unless image.content_type.in?(%w[image/jpeg image/png])
